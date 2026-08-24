@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G.I. — Gestão Inteligente | Imersão Empresarial Gratuita | Limeira/SP</title>
+  <meta name="description" content="Dois dias de imersão para identificar os gargalos da sua gestão e construir uma empresa mais organizada, previsível e menos dependente do fundador. 22 e 23 de setembro — Hotel Zahara, Limeira/SP. Evento gratuito.">
+  <meta name="keywords" content="gestão inteligente, imersão empresarial, limeira, capital upgrade, lilian carmo, gestão empresarial">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="G.I. — Gestão Inteligente | Imersão Empresarial Gratuita">
+  <meta property="og:description" content="Dois dias de imersão para identificar os gargalos da sua gestão. 22 e 23 de setembro — Hotel Zahara, Limeira/SP.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="id/Logo GI Branco.png">
+
+  <style>
+    /* ========================================
+       CSS DESIGN SYSTEM — G.I. GESTÃO INTELIGENTE
+       ======================================== */
+
+    :root {
+      /* Colors */
+      --black-deep: #050505;
+      --black-primary: #0a0a0a;
+      --black-secondary: #111111;
+      --black-card: #141414;
+      --black-border: #1a1a1a;
+      --green-primary: #4CD964;
+      --green-dark: #3ab852;
+      --green-glow: rgba(76, 217, 100, 0.15);
+      --green-glow-strong: rgba(76, 217, 100, 0.3);
+      --white: #ffffff;
+      --white-muted: rgba(255, 255, 255, 0.75);
+      --white-subtle: rgba(255, 255, 255, 0.5);
+
+      /* Typography */
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+
+      /* Spacing */
+      --section-padding: 80px 20px;
+      --container-max: 1100px;
+
+      /* Transitions */
+      --transition-fast: 0.2s ease;
+      --transition-medium: 0.4s ease;
+    }
+
+    /* ========== RESET ========== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--black-primary);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ========== UTILITY ========== */
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      padding: var(--section-padding);
+      position: relative;
+    }
+
+    .text-green { color: var(--green-primary); }
+    .text-muted { color: var(--white-muted); }
+    .text-subtle { color: var(--white-subtle); }
+
+    .headline {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .headline-xl {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+    }
+
+    .headline-lg {
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+    }
+
+    .headline-md {
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+    }
+
+    .body-lg {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      line-height: 1.7;
+      color: var(--white-muted);
+    }
+
+    .body-md {
+      font-size: clamp(0.9rem, 1.8vw, 1rem);
+      line-height: 1.7;
+      color: var(--white-muted);
+    }
+
+    /* ========== CTA BUTTON ========== */
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--green-primary);
+      color: var(--black-deep);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 18px 40px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+      animation: pulse-cta 3s infinite;
+    }
+
+    @keyframes pulse-cta {
+      0% { box-shadow: 0 0 0 0 rgba(76, 217, 100, 0.4); }
+      70% { box-shadow: 0 0 0 15px rgba(76, 217, 100, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(76, 217, 100, 0); }
+    }
+
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .cta-button:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 30px rgba(76, 217, 100, 0.4);
+      animation: none; /* stop pulse on hover */
+    }
+
+    .cta-button:hover::before {
+      left: 100%;
+    }
+
+    .cta-button svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--black-deep);
+      transition: transform 0.3s ease;
+    }
+
+    .cta-button:hover svg {
+      transform: scale(1.15) rotate(10deg);
+    }
+
+    .cta-support {
+      font-size: 0.85rem;
+      color: var(--white-subtle);
+      margin-top: 12px;
+    }
+
+    /* ========== DIAGONAL LIGHT RAYS ========== */
+    .light-ray {
+      position: absolute;
+      width: 1px;
+      height: 200%;
+      background: linear-gradient(180deg, transparent, var(--green-primary), transparent);
+      opacity: 0.06;
+      transform: rotate(-35deg);
+      pointer-events: none;
+      animation: ray-drift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes ray-drift {
+      0% {
+        transform: rotate(-35deg) translate(0, 0);
+        opacity: 0.04;
+      }
+      100% {
+        transform: rotate(-33deg) translate(30px, -30px);
+        opacity: 0.1;
+      }
+    }
+
+    /* ========== BADGE / SELO ========== */
+    .badge {
+      display: inline-block;
+      border: 1px solid var(--green-primary);
+      color: var(--green-primary);
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.75rem;
+      padding: 8px 20px;
+      border-radius: 4px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      box-shadow: 0 0 15px rgba(76, 217, 100, 0.1);
+      position: relative;
+    }
+
+    /* ========== REVEAL ANIMATION ========== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px) scale(0.97);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ========== SECTION DIVIDER ========== */
+    .section-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--green-primary);
+      margin: 0 auto 40px;
+    }
+
+    /* ==========================================
+       SEÇÃO 01 — HERO
+       ========================================== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 20px 80px;
+      position: relative;
+      overflow: hidden;
+      background: var(--black-primary);
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: linear-gradient(to bottom, rgba(10, 10, 10, 0.65) 0%, var(--black-primary) 98%),
+                        linear-gradient(to right, var(--black-primary) 0%, transparent 20%, transparent 80%, var(--black-primary) 100%),
+                        url('id/optimized/lilian_hero.jpg');
+      background-size: cover;
+      background-position: center 25%;
+      opacity: 0.15; /* low opacity */
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero .light-ray:nth-child(2) { left: 15%; top: -50%; }
+    .hero .light-ray:nth-child(3) { left: 70%; top: -30%; opacity: 0.05; }
+    .hero .light-ray:nth-child(4) { right: 10%; top: -40%; opacity: 0.06; }
+
+    /* Watermark logo G.I. no hero */
+    .hero::after {
+      content: 'G.I.';
+      position: absolute;
+      right: -5%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: clamp(15rem, 30vw, 30rem);
+      color: rgba(255, 255, 255, 0.015);
+      letter-spacing: -0.05em;
+      pointer-events: none;
+      line-height: 1;
+      z-index: 1;
+    }
+
+    .hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .hero-logo {
+      width: 180px;
+      margin: 0 auto 24px;
+    }
+
+    .hero-logo img {
+      width: 100%;
+    }
+
+    .hero .badge {
+      margin-bottom: 32px;
+    }
+
+    .hero-headline {
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      margin-bottom: 24px;
+    }
+
+    .hero-headline .accent {
+      color: var(--green-primary);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.2vw, 1.25rem);
+      color: var(--white-muted);
+      max-width: 680px;
+      margin: 0 auto 24px;
+      line-height: 1.7;
+    }
+
+    .hero-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      color: var(--white-muted);
+      margin-bottom: 36px;
+    }
+
+    .hero-info .separator {
+      color: var(--green-primary);
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ==========================================
+       SEÇÃO 02 — IDENTIFICAÇÃO
+       ========================================== */
+    .identification {
+      background: var(--black-secondary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .identification::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--green-primary), transparent);
+      opacity: 0.3;
+    }
+
+    .id-headline {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .id-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 48px;
+    }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .pain-card {
+      background: var(--black-card);
+      border: 1px solid var(--black-border);
+      border-radius: 12px;
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition-medium);
+    }
+
+    .pain-card:hover {
+      border-color: var(--green-primary);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(76, 217, 100, 0.12);
+    }
+
+    .pain-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--green-primary);
+      transform: scaleX(0);
+      transition: transform var(--transition-medium);
+    }
+
+    .pain-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .pain-trigger {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .pain-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pain-arrow {
+      color: var(--green-primary);
+      font-size: 1.2rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .pain-response {
+      font-size: 0.95rem;
+      color: var(--white-muted);
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    .id-highlight {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 32px;
+      border-left: 3px solid var(--green-primary);
+      background: var(--green-glow);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .id-highlight p {
+      font-family: var(--font-heading);
+      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    /* ==========================================
+       SEÇÃO 03 — 4 PILARES
+       ========================================== */
+    .pillars {
+      background: var(--black-primary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pillars-headline {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 24px;
+    }
+
+    .pillar-card {
+      background: linear-gradient(135deg, rgba(76, 217, 100, 0.08) 0%, rgba(76, 217, 100, 0.02) 100%);
+      border: 1px solid rgba(76, 217, 100, 0.25);
+      border-radius: 16px;
+      padding: 36px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition-medium);
+    }
+
+    .pillar-card:hover {
+      border-color: var(--green-primary);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(76, 217, 100, 0.2);
+    }
+
+    .pillar-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 20px;
+      background: var(--green-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-medium);
+    }
+
+    .pillar-card:hover .pillar-icon {
+      background: var(--white);
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    }
+
+    .pillar-icon svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--black-deep);
+      transition: transform var(--transition-medium);
+    }
+
+    .pillar-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      color: var(--green-primary);
+    }
+
+    .pillar-desc {
+      font-size: 0.92rem;
+      color: var(--white-muted);
+      line-height: 1.65;
+    }
+
+    /* ==========================================
+       SEÇÃO 04 — O QUE SERÁ TRABALHADO
+       ========================================== */
+    .program {
+      background: var(--black-secondary);
+      position: relative;
+    }
+
+    .program::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--green-primary), transparent);
+      opacity: 0.3;
+    }
+
+    .program-headline {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .program-list {
+      max-width: 680px;
+      margin: 0 auto 48px;
+      list-style: none;
+    }
+
+    .program-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 1rem;
+      color: var(--white-muted);
+    }
+
+    .program-list li:last-child {
+      border-bottom: none;
+    }
+
+    .check-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      background: var(--green-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .check-icon svg {
+      width: 12px;
+      height: 12px;
+      fill: var(--black-deep);
+    }
+
+    .program-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+      padding: 28px;
+      background: var(--black-card);
+      border: 1px solid var(--black-border);
+      border-radius: 12px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 48px;
+    }
+
+    .flow-step {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--green-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      position: relative;
+    }
+
+    .flow-step::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--white);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s ease;
+    }
+
+    .program-flow:hover .flow-step::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .flow-arrow {
+      color: var(--white-subtle);
+      font-size: 1.2rem;
+      transition: transform 0.4s ease;
+    }
+
+    .program-flow:hover .flow-arrow {
+      transform: translateX(4px);
+    }
+
+    .program-cta {
+      text-align: center;
+    }
+
+    /* ==========================================
+       SEÇÃO 05 — PARA QUEM É
+       ========================================== */
+    .audience {
+      background: var(--black-primary);
+      position: relative;
+    }
+
+    .audience-headline {
+      text-align: center;
+      margin-bottom: 56px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .audience-card {
+      background: var(--black-card);
+      border: 1px solid var(--black-border);
+      border-radius: 16px;
+      padding: 36px 28px;
+      text-align: center;
+      transition: all var(--transition-medium);
+    }
+
+    .audience-card:hover {
+      border-color: var(--green-primary);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(76, 217, 100, 0.12);
+    }
+
+    .audience-icon {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 20px;
+      border: 2px solid var(--green-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-medium);
+    }
+
+    .audience-card:hover .audience-icon {
+      background: var(--green-primary);
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(76, 217, 100, 0.3);
+    }
+
+    .audience-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--green-primary);
+      transition: all var(--transition-medium);
+    }
+
+    .audience-card:hover .audience-icon svg {
+      fill: var(--black-deep);
+    }
+
+    .audience-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .audience-desc {
+      font-size: 0.92rem;
+      color: var(--white-muted);
+      line-height: 1.65;
+    }
+
+    .audience-closing {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 28px;
+      border-left: 3px solid var(--green-primary);
+      background: var(--green-glow);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .audience-closing p {
+      font-size: 1rem;
+      color: var(--white-muted);
+      font-style: italic;
+    }
+
+    /* ==========================================
+       SEÇÃO 06 — EXPERIÊNCIA
+       ========================================== */
+    .experience {
+      background: var(--black-secondary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .experience::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--green-primary), transparent);
+      opacity: 0.3;
+    }
+
+    .experience-headline {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 12px;
+    }
+
+    .experience-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--black-card);
+      border: 1px solid var(--black-border);
+    }
+
+    .experience-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-medium);
+    }
+
+    .experience-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .experience-item .exp-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      color: var(--white-subtle);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(135deg, rgba(76, 217, 100, 0.05) 0%, transparent 100%);
+    }
+
+    .experience-item .exp-placeholder svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--white-subtle);
+      opacity: 0.5;
+    }
+
+    .experience-tag {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: var(--green-primary);
+      color: var(--black-deep);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.7rem;
+      padding: 6px 14px;
+      border-radius: 4px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    .experience-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--white-subtle);
+      font-style: italic;
+    }
+
+    /* ==========================================
+       SEÇÃO 07 — LILIAN CARMO
+       ========================================== */
+    .speaker {
+      background: var(--black-primary);
+      position: relative;
+    }
+
+    .speaker-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .speaker-inner {
+        grid-template-columns: 300px 1fr;
+        gap: 56px;
+      }
+    }
+
+    .speaker-photo {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      background: var(--black-card);
+      border: 1px solid var(--black-border);
+      max-width: 300px;
+      margin: 0 auto;
+      box-shadow: 0 10px 40px rgba(76, 217, 100, 0.15);
+    }
+
+    .speaker-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .speaker-photo .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      color: var(--white-subtle);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(135deg, rgba(76, 217, 100, 0.05) 0%, transparent 100%);
+    }
+
+    .speaker-photo .photo-placeholder svg {
+      width: 40px;
+      height: 40px;
+      fill: var(--white-subtle);
+      opacity: 0.5;
+    }
+
+    .speaker-photo::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(transparent, rgba(0,0,0,0.6));
+      pointer-events: none;
+    }
+
+    .speaker-content {}
+
+    .speaker-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      margin-bottom: 8px;
+    }
+
+    .speaker-role {
+      font-size: 0.95rem;
+      color: var(--green-primary);
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .speaker-bio {
+      font-size: 1rem;
+      color: var(--white-muted);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .speaker-quote {
+      padding: 24px;
+      border-left: 3px solid var(--green-primary);
+      background: var(--green-glow);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .speaker-quote p {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--white);
+    }
+
+    /* ==========================================
+       SEÇÃO 08 — INFORMAÇÕES DO EVENTO
+       ========================================== */
+    .event-info {
+      background: var(--black-secondary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .event-info::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--green-primary), transparent);
+      opacity: 0.3;
+    }
+
+    .event-info-card {
+      max-width: 700px;
+      margin: 0 auto;
+      background: var(--black-card);
+      border: 1px solid rgba(76, 217, 100, 0.25);
+      border-radius: 20px;
+      padding: 48px 36px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .event-info-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--green-primary);
+    }
+
+    .event-info-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+      margin-bottom: 8px;
+    }
+
+    .event-info-subtitle {
+      font-size: 0.85rem;
+      color: var(--green-primary);
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .event-details {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    @media (min-width: 500px) {
+      .event-details {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .event-detail {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 10px;
+    }
+
+    .event-detail-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: rgba(76, 217, 100, 0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .event-detail-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--green-primary);
+    }
+
+    .event-detail-text {
+      text-align: left;
+    }
+
+    .event-detail-label {
+      font-size: 0.75rem;
+      color: var(--white-subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 2px;
+    }
+
+    .event-detail-value {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .event-info-badge {
+      display: inline-block;
+      background: var(--green-primary);
+      color: var(--black-deep);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 10px 24px;
+      border-radius: 6px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .event-info-cta {
+      margin-bottom: 16px;
+    }
+
+    .event-info-support {
+      font-size: 0.85rem;
+      color: var(--white-subtle);
+    }
+
+    /* ==========================================
+       SEÇÃO 09 — CTA FINAL
+       ========================================== */
+    .final-cta {
+      background: var(--black-primary);
+      position: relative;
+      overflow: hidden;
+      padding: 100px 20px;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at 50% 100%, rgba(76, 217, 100, 0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .final-cta .light-ray:nth-child(1) { left: 25%; top: -50%; }
+    .final-cta .light-ray:nth-child(2) { right: 20%; top: -30%; opacity: 0.05; }
+
+    .final-inner {
+      max-width: 750px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .final-headline {
+      margin-bottom: 28px;
+    }
+
+    .final-text {
+      margin-bottom: 40px;
+    }
+
+    .final-cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 28px;
+    }
+
+    .final-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      color: var(--white-subtle);
+    }
+
+    .final-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      background: var(--black-deep);
+      padding: 32px 20px;
+      text-align: center;
+      border-top: 1px solid var(--black-border);
+    }
+
+    .footer-logo {
+      width: 100px;
+      margin: 0 auto 16px;
+    }
+
+    .footer-text {
+      font-size: 0.8rem;
+      color: var(--white-subtle);
+    }
+
+    /* ========== FLOATING WHATSAPP ========== */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      transition: all var(--transition-fast);
+      animation: pulse-whatsapp 2s infinite;
+    }
+
+    .floating-whatsapp:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+    }
+
+    .floating-whatsapp svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--white);
+    }
+
+    @keyframes pulse-whatsapp {
+      0% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+      50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.7), 0 0 0 8px rgba(37, 211, 102, 0.1); }
+      100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+    }
+
+    /* ========== MOBILE RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      :root {
+        --section-padding: 60px 16px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 100px 16px 60px;
+      }
+
+      .hero::after {
+        font-size: 10rem;
+        right: -10%;
+      }
+
+      .hero-logo {
+        width: 140px;
+      }
+
+      .cta-button {
+        width: 100%;
+        max-width: 360px;
+        padding: 16px 32px;
+        font-size: 0.9rem;
+      }
+
+      .pain-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pillars-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .audience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .event-info-card {
+        padding: 36px 24px;
+      }
+
+      .final-cta {
+        padding: 60px 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-info {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .program-flow {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .flow-arrow {
+        transform: rotate(90deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================
+       SEÇÃO 01 — HERO
+       ========================================== -->
+  <section class="hero section" id="hero">
+    <div class="hero-bg"></div>
+    <div class="light-ray"></div>
+    <div class="light-ray"></div>
+    <div class="light-ray"></div>
+
+    <div class="hero-inner">
+      <div class="hero-logo reveal">
+        <img src="id/Logo GI Branco.png" alt="G.I. — Gestão Inteligente" width="180" height="90">
+      </div>
+
+      <div class="badge reveal reveal-delay-1">IMERSÃO EMPRESARIAL GRATUITA</div>
+
+      <h1 class="headline hero-headline reveal reveal-delay-2">
+        SUA EMPRESA CRESCE.<br>
+        MAS A GESTÃO <span class="accent">ACOMPANHA?</span>
+      </h1>
+
+      <p class="hero-sub reveal reveal-delay-3">
+        Dois dias de imersão para identificar os gargalos da sua gestão e construir uma empresa mais organizada, previsível e menos dependente do fundador.
+      </p>
+
+      <div class="hero-info reveal reveal-delay-3">
+        <span>22 e 23 de setembro</span>
+        <span class="separator">•</span>
+        <span>Hotel Zahara | Limeira/SP</span>
+      </div>
+
+      <div class="hero-cta-group reveal reveal-delay-4">
+        <a href="https://wa.me/5519999817138?text=Ol%C3%A1%2C%20quero%20garantir%20minha%20vaga%20no%20G.I.%20%E2%80%94%20Gest%C3%A3o%20Inteligente!" target="_blank" rel="noopener" class="cta-button">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          QUERO GARANTIR MINHA VAGA
+        </a>
+        <p class="cta-support">Clique e fale com nosso time pelo WhatsApp.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SEÇÃO 02 — IDENTIFICAÇÃO
+       ========================================== -->
+  <section class="identification section" id="identificacao">
+    <div class="container">
+      <div class="id-headline reveal">
+        <h2 class="headline headline-xl">
+          QUANTO A SUA EMPRESA<br>AINDA <span class="text-green">DEPENDE DE VOCÊ?</span>
+        </h2>
+      </div>
+
+      <p class="body-lg id-intro reveal">
+        Sua empresa pode crescer em faturamento, equipe e estrutura e, ainda assim, continuar extremamente dependente do fundador.
+      </p>
+
+      <div class="pain-grid">
+        <div class="pain-card reveal reveal-delay-1">
+          <p class="pain-trigger">Vendas caem?</p>
+          <div class="pain-meta">
+            <span class="pain-arrow">→</span>
+            <p class="pain-response">Você precisa entrar.</p>
+          </div>
+        </div>
+        <div class="pain-card reveal reveal-delay-2">
+          <p class="pain-trigger">A operação trava?</p>
+          <div class="pain-meta">
+            <span class="pain-arrow">→</span>
+            <p class="pain-response">Você precisa resolver.</p>
+          </div>
+        </div>
+        <div class="pain-card reveal reveal-delay-3">
+          <p class="pain-trigger">O financeiro aperta?</p>
+          <div class="pain-meta">
+            <span class="pain-arrow">→</span>
+            <p class="pain-response">Você precisa decidir.</p>
+          </div>
+        </div>
+        <div class="pain-card reveal reveal-delay-4">
+          <p class="pain-trigger">A equipe tem um problema?</p>
+          <div class="pain-meta">
+            <span class="pain-arrow">→</span>
+            <p class="pain-response">Todos procuram você.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="id-highlight reveal">
+        <p>Se tudo precisa passar pelo fundador, existe um <span class="text-green">limite para o crescimento</span> da empresa.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SEÇÃO 03 — 4 PILARES
+       ========================================== -->
+  <section class="pillars section" id="pilares">
+    <div class="container">
+      <div class="pillars-headline reveal">
+        <div class="section-divider"></div>
+        <h2 class="headline headline-xl">
+          GESTÃO INTELIGENTE COMEÇA<br>COM <span class="text-green">4 PILARES.</span>
+        </h2>
+      </div>
+
+      <div class="pillars-grid">
+        <!-- VENDAS -->
+        <div class="pillar-card reveal reveal-delay-1">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>
+          </div>
+          <h3 class="pillar-title">Vendas</h3>
+          <p class="pillar-desc">Indicadores e previsibilidade para uma operação comercial mais consistente.</p>
+        </div>
+
+        <!-- OPERAÇÕES -->
+        <div class="pillar-card reveal reveal-delay-2">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+          </div>
+          <h3 class="pillar-title">Operações</h3>
+          <p class="pillar-desc">Processos claros para uma empresa mais organizada, eficiente e replicável.</p>
+        </div>
+
+        <!-- FINANÇAS -->
+        <div class="pillar-card reveal reveal-delay-3">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+          </div>
+          <h3 class="pillar-title">Finanças</h3>
+          <p class="pillar-desc">Clareza dos números para proteger margens e tomar melhores decisões.</p>
+        </div>
+
+        <!-- PESSOAS -->
+        <div class="pillar-card reveal reveal-delay-4">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          </div>
+          <h3 class="pillar-title">Pessoas</h3>
+          <p class="pillar-desc">Responsabilidades claras, alinhamento e execução.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SEÇÃO 04 — O QUE SERÁ TRABALHADO
+       ========================================== -->
+  <section class="program section" id="programa">
+    <div class="container">
+      <div class="program-headline reveal">
+        <div class="section-divider"></div>
+        <h2 class="headline headline-xl">
+          NÃO É SOBRE TRABALHAR MAIS.<br>
+          É SOBRE <span class="text-green">GERIR MELHOR.</span>
+        </h2>
+        <p class="body-lg" style="margin-top: 20px; max-width: 640px; margin-left: auto; margin-right: auto;">
+          Durante os dois dias, o empresário será provocado a olhar para:
+        </p>
+      </div>
+
+      <ul class="program-list reveal">
+        <li>
+          <div class="check-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <span>Os principais gargalos da gestão</span>
+        </li>
+        <li>
+          <div class="check-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <span>Onde a empresa ainda depende excessivamente do fundador</span>
+        </li>
+        <li>
+          <div class="check-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <span>Como Vendas, Operações, Finanças e Pessoas estão conectadas</span>
+        </li>
+        <li>
+          <div class="check-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <span>Processos e responsabilidades</span>
+        </li>
+        <li>
+          <div class="check-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <span>Indicadores para tomada de decisão</span>
+        </li>
+        <li>
+          <div class="check-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <span>Prioridades para evolução da gestão</span>
+        </li>
+      </ul>
+
+      <div class="program-flow reveal">
+        <span class="flow-step">Diagnóstico</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-step">Clareza</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-step">Estrutura</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-step">Ação</span>
+      </div>
+
+      <div class="program-cta reveal">
+        <a href="https://wa.me/5519999817138?text=Ol%C3%A1%2C%20quero%20participar%20gratuitamente%20do%20G.I.%20%E2%80%94%20Gest%C3%A3o%20Inteligente!" target="_blank" rel="noopener" class="cta-button">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          QUERO PARTICIPAR GRATUITAMENTE
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SEÇÃO 05 — PARA QUEM É
+       ========================================== -->
+  <section class="audience section" id="para-quem">
+    <div class="container">
+      <div class="audience-headline reveal">
+        <div class="section-divider"></div>
+        <h2 class="headline headline-lg">
+          PARA EMPRESÁRIOS QUE QUEREM CONSTRUIR UMA <span class="text-green">EMPRESA</span> — E NÃO APENAS UM EMPREGO PARA SI MESMOS.
+        </h2>
+      </div>
+
+      <div class="audience-grid">
+        <div class="audience-card reveal reveal-delay-1">
+          <div class="audience-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          </div>
+          <h3 class="audience-title">Empresários</h3>
+          <p class="audience-desc">Que precisam estruturar a empresa para uma nova fase de crescimento.</p>
+        </div>
+
+        <div class="audience-card reveal reveal-delay-2">
+          <div class="audience-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          </div>
+          <h3 class="audience-title">Sócios</h3>
+          <p class="audience-desc">Que precisam de maior clareza sobre gestão e responsabilidades.</p>
+        </div>
+
+        <div class="audience-card reveal reveal-delay-3">
+          <div class="audience-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+          </div>
+          <h3 class="audience-title">Gestores</h3>
+          <p class="audience-desc">Que precisam transformar estratégia em execução.</p>
+        </div>
+      </div>
+
+      <div class="audience-closing reveal">
+        <p>Se a empresa cresceu mais rápido que a gestão, o G.I. é o ambiente para começar a reorganizar essa equação.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SEÇÃO 06 — EXPERIÊNCIA
+       ========================================== -->
+  <section class="experience section" id="experiencia">
+    <div class="container">
+      <div class="experience-headline reveal">
+        <div class="section-divider"></div>
+        <h2 class="headline headline-xl">
+          DOIS DIAS PARA TRABALHAR<br>SOBRE A <span class="text-green">SUA EMPRESA.</span>
+        </h2>
+      </div>
+
+      <div class="experience-grid">
+        <div class="experience-item reveal reveal-delay-1">
+          <img src="id/optimized/lilian_apresentando.jpg" alt="Lilian apresentando no palco do G.I." width="400" height="300">
+          <span class="experience-tag">Conteúdo</span>
+        </div>
+
+        <div class="experience-item reveal reveal-delay-2">
+          <img src="id/optimized/exercicio_pratico.jpg" alt="Empresários fazendo exercício prático de diagnóstico" width="400" height="300">
+          <span class="experience-tag">Diagnóstico</span>
+        </div>
+
+        <div class="experience-item reveal reveal-delay-3">
+          <img src="id/optimized/empresarios_anotando.jpg" alt="Empresários aplicando e anotando métodos de gestão" width="400" height="300">
+          <span class="experience-tag">Aplicação</span>
+        </div>
+
+        <div class="experience-item reveal reveal-delay-4">
+          <img src="id/optimized/interacao_empresarios.jpg" alt="Troca de experiências e networking entre empresários" width="400" height="300">
+          <span class="experience-tag">Troca entre empresários</span>
+        </div>
+      </div>
+
+      <p class="experience-note reveal">
+        * Imagens de eventos anteriores da Capital Upgrade. Serão atualizadas com fotos reais.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SEÇÃO 07 — LILIAN CARMO
+       ========================================== -->
+  <section class="speaker section" id="lilian">
+    <div class="container">
+      <div class="speaker-inner">
+        <div class="speaker-photo reveal">
+          <img src="id/optimized/lilian_bio.jpg" alt="Lilian Carmo — Sócia da Capital Upgrade" width="300" height="400">
+        </div>
+
+        <div class="speaker-content reveal reveal-delay-1">
+          <h2 class="speaker-name">LILIAN CARMO</h2>
+          <p class="speaker-role">Empresária, conselheira, mentora de negócios e sócia da Capital Upgrade.</p>
+          <p class="speaker-bio">
+            Com experiência em ambientes corporativos e empresariais de alta complexidade, Lilian construiu sua trajetória passando por multinacionais como AstraZeneca, Sanofi Aventis e Johnson & Johnson, além de atuar como CEO e CRO de um dos maiores grupos educacionais do Brasil.
+          </p>
+          <p class="speaker-bio">
+            Hoje, como sócia da Capital Upgrade, atua ao lado de empresários na construção de empresas mais estruturadas, utilizando gestão, método e estratégia para sustentar o crescimento.
+          </p>
+          <div class="speaker-quote">
+            <p>"Crescer é importante. Saber governar o crescimento é <span class="text-green">fundamental</span>."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SEÇÃO 08 — INFORMAÇÕES DO EVENTO
+       ========================================== -->
+  <section class="event-info section" id="informacoes">
+    <div class="container">
+      <div class="event-info-card reveal">
+        <h2 class="event-info-title">G.I. — GESTÃO INTELIGENTE</h2>
+        <p class="event-info-subtitle">Imersão Empresarial</p>
+
+        <div class="event-details">
+          <div class="event-detail">
+            <div class="event-detail-icon">
+              <!-- Calendar -->
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19a2 2 0 002 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg>
+            </div>
+            <div class="event-detail-text">
+              <p class="event-detail-label">Data</p>
+              <p class="event-detail-value">22 e 23 de Setembro</p>
+            </div>
+          </div>
+
+          <div class="event-detail">
+            <div class="event-detail-icon">
+              <!-- Clock -->
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            </div>
+            <div class="event-detail-text">
+              <p class="event-detail-label">Horário</p>
+              <p class="event-detail-value">Início às 9:00</p>
+            </div>
+          </div>
+
+          <div class="event-detail">
+            <div class="event-detail-icon">
+              <!-- Location -->
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+            </div>
+            <div class="event-detail-text">
+              <p class="event-detail-label">Local</p>
+              <p class="event-detail-value">Hotel Zahara</p>
+            </div>
+          </div>
+
+          <div class="event-detail">
+            <div class="event-detail-icon">
+              <!-- Map -->
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>
+            </div>
+            <div class="event-detail-text">
+              <p class="event-detail-label">Endereço</p>
+              <p class="event-detail-value">R. José Jorge Rodrigues, 485 — Limeira/SP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-info-badge">IMERSÃO GRATUITA</div>
+
+        <div class="event-info-cta">
+          <a href="https://wa.me/5519999817138?text=Ol%C3%A1%2C%20quero%20garantir%20minha%20vaga%20no%20G.I.%20%E2%80%94%20Gest%C3%A3o%20Inteligente!" target="_blank" rel="noopener" class="cta-button">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            QUERO GARANTIR MINHA VAGA
+          </a>
+        </div>
+
+        <p class="event-info-support">As inscrições são realizadas diretamente com nosso time pelo WhatsApp.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SEÇÃO 09 — CTA FINAL
+       ========================================== -->
+  <section class="final-cta section" id="cta-final">
+    <div class="light-ray"></div>
+    <div class="light-ray"></div>
+
+    <div class="final-inner">
+      <div class="reveal">
+        <h2 class="headline headline-xl final-headline">
+          SE VOCÊ SE AFASTASSE DA SUA EMPRESA POR 30 DIAS HOJE...<br>
+          <span class="text-green">ELA CONTINUARIA FUNCIONANDO NO MESMO NÍVEL?</span>
+        </h2>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <p class="body-lg final-text">
+          A resposta para essa pergunta diz muito sobre o nível atual de maturidade da sua gestão.<br><br>
+          Nos dias 22 e 23 de setembro, vamos olhar juntos para <strong>Vendas, Operações, Finanças e Pessoas</strong> para identificar os gargalos que precisam ser trabalhados para a próxima fase da empresa.
+        </p>
+      </div>
+
+      <div class="final-cta-group reveal reveal-delay-2">
+        <a href="https://wa.me/5519999817138?text=Ol%C3%A1%2C%20quero%20participar%20do%20G.I.%20%E2%80%94%20Gest%C3%A3o%20Inteligente!" target="_blank" rel="noopener" class="cta-button">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          QUERO PARTICIPAR DO G.I.
+        </a>
+        <p class="cta-support">Evento gratuito | Vagas limitadas</p>
+      </div>
+
+      <div class="final-meta reveal reveal-delay-3">
+        <span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(255,255,255,0.5)" xmlns="http://www.w3.org/2000/svg"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19a2 2 0 002 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+          22 e 23 de setembro
+        </span>
+        <span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(255,255,255,0.5)" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+          Limeira/SP
+        </span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <img src="id/Logo GI Branco.png" alt="G.I. — Gestão Inteligente" width="100" height="50">
+    </div>
+    <p class="footer-text">G.I. — Gestão Inteligente é uma realização Capital Upgrade.</p>
+    <p class="footer-text" style="margin-top: 4px;">© 2026 Capital Upgrade. Todos os direitos reservados.</p>
+  </footer>
+
+
+  <!-- ========== FLOATING WHATSAPP ========== -->
+  <a href="https://wa.me/5519999817138?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20G.I.%20%E2%80%94%20Gest%C3%A3o%20Inteligente!" target="_blank" rel="noopener" class="floating-whatsapp" aria-label="Fale conosco pelo WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script>
+    // Intersection Observer for reveal animations
+    document.addEventListener('DOMContentLoaded', function() {
+      const revealElements = document.querySelectorAll('.reveal');
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealElements.forEach(function(el) {
+        observer.observe(el);
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          var target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
