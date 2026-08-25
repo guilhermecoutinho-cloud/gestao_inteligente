@@ -1349,6 +1349,107 @@
       100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
     }
 
+    /* ==========================================
+       SEÇÃO 07B — QUEM SOMOS E AFTERMOVIE
+       ========================================== */
+    .about-delivery {
+      background: var(--black-secondary);
+      position: relative;
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+
+    .video-container {
+      max-width: 800px;
+      margin: 0 auto;
+      border: 1px solid rgba(76, 217, 100, 0.25);
+      box-shadow: 0 10px 40px rgba(76, 217, 100, 0.15);
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--black-deep);
+    }
+
+    .video-container video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+
+    /* ==========================================
+       SEÇÃO 07C — DEPOIMENTOS
+       ========================================== */
+    .testimonials {
+      background: var(--black-primary);
+      position: relative;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .testimonial-card {
+      background: var(--black-card);
+      border: 1px solid var(--black-border);
+      border-radius: 16px;
+      padding: 20px;
+      transition: all var(--transition-medium);
+    }
+
+    .testimonial-card:hover {
+      border-color: var(--green-primary);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(76, 217, 100, 0.1);
+    }
+
+    .testimonial-video {
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      background: var(--black-deep);
+    }
+
+    .testimonial-video video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+
+    .testimonial-info {
+      text-align: left;
+    }
+
+    .testimonial-name {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .testimonial-company {
+      font-size: 0.85rem;
+      color: var(--green-primary);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
     /* ========== MOBILE RESPONSIVE ========== */
     @media (max-width: 768px) {
       :root {
@@ -1772,6 +1873,79 @@
           </p>
           <div class="speaker-quote">
             <p>"Crescer é importante. Saber governar o crescimento é <span class="text-green">fundamental</span>."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SEÇÃO 07B — QUEM SOMOS E O QUE ENTREGAMOS?
+       ========================================== -->
+  <section class="about-delivery section" id="quem-somos">
+    <div class="container">
+      <div class="about-content reveal">
+        <div class="section-divider"></div>
+        <h2 class="headline headline-xl">
+          QUEM SOMOS E O QUE <span class="text-green">ENTREGAMOS?</span>
+        </h2>
+        <p class="body-lg" style="margin-top: 20px; max-width: 720px; margin-left: auto; margin-right: auto;">
+          O G.I. — Gestão Inteligente é o treinamento presencial de imersão da Capital Upgrade. Um ambiente estratégico desenhado para empresários acelerarem o crescimento de seus negócios através de processos práticos e método robusto. Assista ao vídeo abaixo e veja a atmosfera de entrega das nossas imersões.
+        </p>
+      </div>
+
+      <div class="video-container reveal reveal-delay-1">
+        <video controls preload="metadata" playsinline>
+          <source src="id/optimized/aftermovie_v2.mp4" type="video/mp4">
+          Seu navegador não suporta a reprodução de vídeo.
+        </video>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SEÇÃO 07C — DEPOIMENTOS
+       ========================================== -->
+  <section class="testimonials section" id="depoimentos">
+    <div class="container">
+      <div class="about-content reveal">
+        <div class="section-divider"></div>
+        <h2 class="headline headline-xl">
+          O QUE DIZEM OS <span class="text-green">EMPRESÁRIOS</span>
+        </h2>
+        <p class="body-lg" style="margin-top: 20px;">
+          Resultados reais de quem aplicou o método do Gestão Inteligente em seus negócios.
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+        <!-- Depoimento José -->
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-video">
+            <video controls preload="metadata" playsinline>
+              <source src="id/optimized/depoimento_jose.mp4" type="video/mp4">
+              Seu navegador não suporta a reprodução de vídeo.
+            </video>
+          </div>
+          <div class="testimonial-info">
+            <h3 class="testimonial-name">José</h3>
+            <p class="testimonial-company">Depoimento — Método G.I.</p>
+          </div>
+        </div>
+
+        <!-- Depoimento Ricardo -->
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-video">
+            <video controls preload="metadata" playsinline>
+              <source src="id/optimized/depoimento_ricardo.mp4" type="video/mp4">
+              Seu navegador não suporta a reprodução de vídeo.
+            </video>
+          </div>
+          <div class="testimonial-info">
+            <h3 class="testimonial-name">Ricardo</h3>
+            <p class="testimonial-company">Depoimento — Método G.I.</p>
           </div>
         </div>
       </div>

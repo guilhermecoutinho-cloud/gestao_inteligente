@@ -1,0 +1,2 @@
+# Ignore large raw video files to comply with GitHub 100MB file size limits
+id/optimized/*.mp4
