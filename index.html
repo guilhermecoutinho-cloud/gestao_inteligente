@@ -519,10 +519,10 @@
       background: linear-gradient(135deg, rgba(76, 217, 100, 0.08) 0%, rgba(76, 217, 100, 0.02) 100%);
       border: 1px solid rgba(76, 217, 100, 0.25);
       border-radius: 16px;
-      padding: 36px 28px;
+      padding: 44px 28px 36px;
       text-align: center;
       position: relative;
-      overflow: hidden;
+      overflow: visible; /* changed from hidden to allow outer connections */
       transition: all var(--transition-medium);
     }
 
@@ -530,6 +530,64 @@
       border-color: var(--green-primary);
       transform: translateY(-6px);
       box-shadow: 0 12px 40px rgba(76, 217, 100, 0.2);
+    }
+
+    /* Connecting arrows for visual flow */
+    @media (min-width: 992px) {
+      .pillars-grid {
+        grid-template-columns: repeat(4, 1fr);
+        position: relative;
+      }
+      .pillar-card:not(:last-child)::after {
+        content: '→';
+        position: absolute;
+        right: -22px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.8rem;
+        color: var(--green-primary);
+        z-index: 10;
+        opacity: 0.6;
+        animation: slide-arrow-horiz 1.5s infinite ease-in-out;
+      }
+    }
+
+    @media (max-width: 991px) {
+      .pillar-card:not(:last-child)::after {
+        content: '↓';
+        position: absolute;
+        bottom: -22px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.8rem;
+        color: var(--green-primary);
+        z-index: 10;
+        opacity: 0.6;
+        animation: slide-arrow-vert 1.5s infinite ease-in-out;
+      }
+    }
+
+    @keyframes slide-arrow-horiz {
+      0% { transform: translateY(-50%) translateX(-3px); opacity: 0.4; }
+      50% { transform: translateY(-50%) translateX(3px); opacity: 0.8; }
+      100% { transform: translateY(-50%) translateX(-3px); opacity: 0.4; }
+    }
+
+    @keyframes slide-arrow-vert {
+      0% { transform: translateX(-50%) translateY(-3px); opacity: 0.4; }
+      50% { transform: translateX(-50%) translateY(3px); opacity: 0.8; }
+      100% { transform: translateX(-50%) translateY(-3px); opacity: 0.4; }
+    }
+
+    .pillar-number {
+      position: absolute;
+      top: 16px;
+      left: 20px;
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: rgba(76, 217, 100, 0.45);
+      letter-spacing: 0.05em;
     }
 
     .pillar-icon {
@@ -571,6 +629,40 @@
       font-size: 0.92rem;
       color: var(--white-muted);
       line-height: 1.65;
+    }
+
+    /* Pillars Flow Highlight Bar */
+    .pillars-flow-highlight {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 56px;
+      padding: 24px;
+      background: rgba(76, 217, 100, 0.04);
+      border: 1px solid rgba(76, 217, 100, 0.15);
+      border-radius: 12px;
+      font-family: var(--font-heading);
+      font-size: clamp(0.95rem, 2.2vw, 1.25rem);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .pillars-flow-highlight span:not(.flow-arrow) {
+      color: var(--white);
+      transition: color 0.3s ease;
+    }
+
+    .pillars-flow-highlight:hover span:not(.flow-arrow) {
+      color: var(--green-primary);
+    }
+
+    .pillars-flow-highlight .flow-arrow {
+      color: var(--green-primary);
+      opacity: 0.7;
     }
 
     /* ==========================================
@@ -1355,7 +1447,7 @@
       </h1>
 
       <p class="hero-sub reveal reveal-delay-3">
-        Dois dias de imersão para identificar os gargalos da sua gestão e construir uma empresa mais organizada, previsível e menos dependente do fundador.
+        Dois dias de imersão para identificar os gargalos que estão limitando o crescimento da sua empresa — da geração de demanda à margem e ao lucro.
       </p>
 
       <div class="hero-info reveal reveal-delay-3">
@@ -1369,7 +1461,7 @@
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           QUERO GARANTIR MINHA VAGA
         </a>
-        <p class="cta-support">Clique e fale com nosso time pelo WhatsApp.</p>
+        <p class="cta-support">Participação gratuita. Fale com nosso time pelo WhatsApp.</p>
       </div>
     </div>
   </section>
@@ -1382,47 +1474,47 @@
     <div class="container">
       <div class="id-headline reveal">
         <h2 class="headline headline-xl">
-          QUANTO A SUA EMPRESA<br>AINDA <span class="text-green">DEPENDE DE VOCÊ?</span>
+          ONDE O CRESCIMENTO DA SUA EMPRESA<br>ESTÁ <span class="text-green">TRAVANDO?</span>
         </h2>
       </div>
 
       <p class="body-lg id-intro reveal">
-        Sua empresa pode crescer em faturamento, equipe e estrutura e, ainda assim, continuar extremamente dependente do fundador.
+        Sua empresa pode crescer em faturamento, equipe e estrutura e, ainda assim, encontrar gargalos que limitam seu potencial.
       </p>
 
       <div class="pain-grid">
         <div class="pain-card reveal reveal-delay-1">
-          <p class="pain-trigger">Vendas caem?</p>
+          <p class="pain-trigger">MARKETING</p>
           <div class="pain-meta">
             <span class="pain-arrow">→</span>
-            <p class="pain-response">Você precisa entrar.</p>
+            <p class="pain-response">Sua empresa não gera demanda suficiente ou depende demais de indicação?</p>
           </div>
         </div>
         <div class="pain-card reveal reveal-delay-2">
-          <p class="pain-trigger">A operação trava?</p>
+          <p class="pain-trigger">VENDAS</p>
           <div class="pain-meta">
             <span class="pain-arrow">→</span>
-            <p class="pain-response">Você precisa resolver.</p>
+            <p class="pain-response">Existe demanda, mas ela não se transforma em receita na proporção que deveria?</p>
           </div>
         </div>
         <div class="pain-card reveal reveal-delay-3">
-          <p class="pain-trigger">O financeiro aperta?</p>
+          <p class="pain-trigger">OPERAÇÕES</p>
           <div class="pain-meta">
             <span class="pain-arrow">→</span>
-            <p class="pain-response">Você precisa decidir.</p>
+            <p class="pain-response">A empresa vende, mas sofre para entregar com qualidade, prazo e eficiência?</p>
           </div>
         </div>
         <div class="pain-card reveal reveal-delay-4">
-          <p class="pain-trigger">A equipe tem um problema?</p>
+          <p class="pain-trigger">FINANÇAS</p>
           <div class="pain-meta">
             <span class="pain-arrow">→</span>
-            <p class="pain-response">Todos procuram você.</p>
+            <p class="pain-response">O faturamento cresce, mas margem e lucro não acompanham?</p>
           </div>
         </div>
       </div>
 
       <div class="id-highlight reveal">
-        <p>Se tudo precisa passar pelo fundador, existe um <span class="text-green">limite para o crescimento</span> da empresa.</p>
+        <p>Uma empresa pode travar em qualquer ponto dessa jornada. O <span class="text-green">primeiro passo é saber onde</span>.</p>
       </div>
     </div>
   </section>
@@ -1436,46 +1528,63 @@
       <div class="pillars-headline reveal">
         <div class="section-divider"></div>
         <h2 class="headline headline-xl">
-          GESTÃO INTELIGENTE COMEÇA<br>COM <span class="text-green">4 PILARES.</span>
+          OS 4 PILARES DO GESTÃO INTELIGENTE
         </h2>
+        <p class="body-lg" style="margin-top: 20px; max-width: 640px; margin-left: auto; margin-right: auto;">
+          O crescimento sustentável acontece quando as quatro áreas funcionam como um único sistema.
+        </p>
       </div>
 
       <div class="pillars-grid">
-        <!-- VENDAS -->
+        <!-- 01 — MARKETING -->
         <div class="pillar-card reveal reveal-delay-1">
+          <div class="pillar-number">01</div>
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm0 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+          </div>
+          <h3 class="pillar-title">Marketing</h3>
+          <p class="pillar-desc"><strong>GERAR DEMANDA</strong><br>Construir uma máquina capaz de gerar oportunidades de forma consistente para o negócio.</p>
+        </div>
+
+        <!-- 02 — VENDAS -->
+        <div class="pillar-card reveal reveal-delay-2">
+          <div class="pillar-number">02</div>
           <div class="pillar-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>
           </div>
           <h3 class="pillar-title">Vendas</h3>
-          <p class="pillar-desc">Indicadores e previsibilidade para uma operação comercial mais consistente.</p>
+          <p class="pillar-desc"><strong>CONVERTER DEMANDA EM RECEITA</strong><br>Transformar oportunidades em receita com processo comercial, gestão e indicadores.</p>
         </div>
 
-        <!-- OPERAÇÕES -->
-        <div class="pillar-card reveal reveal-delay-2">
+        <!-- 03 — OPERAÇÕES -->
+        <div class="pillar-card reveal reveal-delay-3">
+          <div class="pillar-number">03</div>
           <div class="pillar-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
           </div>
           <h3 class="pillar-title">Operações</h3>
-          <p class="pillar-desc">Processos claros para uma empresa mais organizada, eficiente e replicável.</p>
+          <p class="pillar-desc"><strong>ENTREGAR COM EXCELÊNCIA</strong><br>Estruturar processos e execução para que a empresa entregue o que vendeu com qualidade e eficiência.</p>
         </div>
 
-        <!-- FINANÇAS -->
-        <div class="pillar-card reveal reveal-delay-3">
+        <!-- 04 — FINANÇAS -->
+        <div class="pillar-card reveal reveal-delay-4">
+          <div class="pillar-number">04</div>
           <div class="pillar-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
           </div>
           <h3 class="pillar-title">Finanças</h3>
-          <p class="pillar-desc">Clareza dos números para proteger margens e tomar melhores decisões.</p>
+          <p class="pillar-desc"><strong>GARANTIR MARGEM E LUCRO</strong><br>Garantir que o crescimento gere resultado financeiro, protegendo margem, caixa e lucratividade.</p>
         </div>
+      </div>
 
-        <!-- PESSOAS -->
-        <div class="pillar-card reveal reveal-delay-4">
-          <div class="pillar-icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-          </div>
-          <h3 class="pillar-title">Pessoas</h3>
-          <p class="pillar-desc">Responsabilidades claras, alinhamento e execução.</p>
-        </div>
+      <div class="pillars-flow-highlight reveal">
+        <span>Gerar</span>
+        <span class="flow-arrow">→</span>
+        <span>Converter</span>
+        <span class="flow-arrow">→</span>
+        <span>Entregar</span>
+        <span class="flow-arrow">→</span>
+        <span>Lucrar</span>
       </div>
     </div>
   </section>
@@ -1489,11 +1598,11 @@
       <div class="program-headline reveal">
         <div class="section-divider"></div>
         <h2 class="headline headline-xl">
-          NÃO É SOBRE TRABALHAR MAIS.<br>
-          É SOBRE <span class="text-green">GERIR MELHOR.</span>
+          NÃO BASTA CRESCER.<br>
+          O CRESCIMENTO PRECISA <span class="text-green">FUNCIONAR DE PONTA A PONTA.</span>
         </h2>
         <p class="body-lg" style="margin-top: 20px; max-width: 640px; margin-left: auto; margin-right: auto;">
-          Durante os dois dias, o empresário será provocado a olhar para:
+          Durante os dois dias, o empresário será provocado a entender:
         </p>
       </div>
 
@@ -1502,48 +1611,48 @@
           <div class="check-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
           </div>
-          <span>Os principais gargalos da gestão</span>
+          <span>Como sua empresa gera demanda hoje;</span>
         </li>
         <li>
           <div class="check-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
           </div>
-          <span>Onde a empresa ainda depende excessivamente do fundador</span>
+          <span>Onde existem gargalos entre a geração de demanda e vendas;</span>
         </li>
         <li>
           <div class="check-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
           </div>
-          <span>Como Vendas, Operações, Finanças e Pessoas estão conectadas</span>
+          <span>Se a operação consegue sustentar aquilo que o comercial vende;</span>
         </li>
         <li>
           <div class="check-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
           </div>
-          <span>Processos e responsabilidades</span>
+          <span>Se o crescimento está efetivamente gerando margem e lucro;</span>
         </li>
         <li>
           <div class="check-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
           </div>
-          <span>Indicadores para tomada de decisão</span>
+          <span>Quais indicadores precisam ser acompanhados de perto;</span>
         </li>
         <li>
           <div class="check-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
           </div>
-          <span>Prioridades para evolução da gestão</span>
+          <span>Onde está o principal gargalo que limita a próxima fase do negócio.</span>
         </li>
       </ul>
 
       <div class="program-flow reveal">
-        <span class="flow-step">Diagnóstico</span>
+        <span class="flow-step">Demanda</span>
         <span class="flow-arrow">→</span>
-        <span class="flow-step">Clareza</span>
+        <span class="flow-step">Receita</span>
         <span class="flow-arrow">→</span>
-        <span class="flow-step">Estrutura</span>
+        <span class="flow-step">Entrega</span>
         <span class="flow-arrow">→</span>
-        <span class="flow-step">Ação</span>
+        <span class="flow-step">Resultado</span>
       </div>
 
       <div class="program-cta reveal">
@@ -1750,15 +1859,14 @@
     <div class="final-inner">
       <div class="reveal">
         <h2 class="headline headline-xl final-headline">
-          SE VOCÊ SE AFASTASSE DA SUA EMPRESA POR 30 DIAS HOJE...<br>
-          <span class="text-green">ELA CONTINUARIA FUNCIONANDO NO MESMO NÍVEL?</span>
+          EM QUAL PONTO O CRESCIMENTO DA SUA EMPRESA ESTÁ TRAVANDO?<br>
+          <span class="text-green">Marketing? Vendas? Operações? Finanças?</span>
         </h2>
       </div>
 
       <div class="reveal reveal-delay-1">
         <p class="body-lg final-text">
-          A resposta para essa pergunta diz muito sobre o nível atual de maturidade da sua gestão.<br><br>
-          Nos dias 22 e 23 de setembro, vamos olhar juntos para <strong>Vendas, Operações, Finanças e Pessoas</strong> para identificar os gargalos que precisam ser trabalhados para a próxima fase da empresa.
+          Nos dias 22 e 23 de setembro, vamos trabalhar esses quatro pilares para ajudar você a identificar onde estão os principais gargalos da empresa e quais decisões precisam ser tomadas para a próxima fase do negócio.
         </p>
       </div>
 
@@ -1767,7 +1875,7 @@
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           QUERO PARTICIPAR DO G.I.
         </a>
-        <p class="cta-support">Vagas limitadas</p>
+        <p class="cta-support">Participação gratuita | Vagas limitadas</p>
       </div>
 
       <div class="final-meta reveal reveal-delay-3">
@@ -1777,7 +1885,7 @@
         </span>
         <span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(255,255,255,0.5)" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
-          Limeira/SP
+          Hotel Zahara • Limeira/SP
         </span>
       </div>
     </div>
