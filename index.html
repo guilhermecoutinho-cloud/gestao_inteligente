@@ -1528,6 +1528,135 @@
         transform: rotate(90deg);
       }
     }
+
+    /* ==========================================
+       SEÇÃO DE CADASTRO / FORMULÁRIO
+       ========================================== */
+    .cadastro-section {
+      background: var(--black-secondary);
+      border-top: 1px solid var(--black-border);
+      position: relative;
+    }
+
+    .cadastro-card {
+      background: var(--black-card);
+      border: 1px solid rgba(76, 217, 100, 0.15);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 25px var(--green-glow);
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cadastro-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .cadastro-title h3 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .cadastro-title p {
+      color: var(--white-muted);
+      font-size: 0.95rem;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--white-muted);
+    }
+
+    .form-input {
+      width: 100%;
+      background: var(--black-deep);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 14px 16px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      transition: all var(--transition-fast);
+    }
+
+    .form-input::placeholder {
+      color: var(--white-subtle);
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--green-primary);
+      box-shadow: 0 0 10px rgba(76, 217, 100, 0.2);
+    }
+
+    .form-select {
+      width: 100%;
+      background: var(--black-deep);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 14px 16px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      transition: all var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .form-select:focus {
+      outline: none;
+      border-color: var(--green-primary);
+      box-shadow: 0 0 10px rgba(76, 217, 100, 0.2);
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .form-feedback {
+      display: none;
+      text-align: center;
+      padding: 30px 20px;
+      border-radius: 12px;
+      background: rgba(76, 217, 100, 0.05);
+      border: 1px solid var(--green-primary);
+      margin-top: 20px;
+      box-shadow: 0 0 20px rgba(76, 217, 100, 0.1);
+    }
+
+    .form-feedback-title {
+      font-family: var(--font-heading);
+      color: var(--green-primary);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .form-feedback-text {
+      color: var(--white-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 580px) {
+      .cadastro-card {
+        padding: 24px;
+      }
+    }
   </style>
   <!-- Meta Pixel Code -->
   <script>
@@ -1566,8 +1695,8 @@
       <div class="badge reveal reveal-delay-1">IMERSÃO EMPRESARIAL</div>
 
       <h1 class="headline hero-headline reveal reveal-delay-2">
-        SUA EMPRESA ESTÁ CRESCENDO.<br>
-        OU SÓ FICANDO <span class="accent">MAIS DIFÍCIL DE CONTROLAR?</span>
+        “Eu construí uma empresa maior para ter uma vida melhor.<br>
+        Hoje tenho uma <span class="accent">empresa maior e uma vida pior.”</span>
       </h1>
 
       <p class="hero-sub reveal reveal-delay-3">
@@ -1581,11 +1710,11 @@
       </div>
 
       <div class="hero-cta-group reveal reveal-delay-4">
-        <a href="https://wa.me/5519999817138?text=Ol%C3%A1%2C%20quero%20garantir%20minha%20vaga%20no%20G.I.%20%E2%80%94%20Gest%C3%A3o%20Inteligente!" target="_blank" rel="noopener" class="cta-button">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <a href="#cadastro" class="cta-button">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21 12l-8.15-8.15-1.42 1.42 5.43 5.43H5v2z"/></svg>
           QUERO GARANTIR MINHA VAGA
         </a>
-        <p class="cta-support">Participação gratuita. Fale com nosso time pelo WhatsApp.</p>
+        <p class="cta-support">Participação gratuita. Vagas limitadas.</p>
       </div>
     </div>
   </section>
@@ -1652,10 +1781,10 @@
       <div class="pillars-headline reveal">
         <div class="section-divider"></div>
         <h2 class="headline headline-xl">
-          OS 4 PILARES DO GESTÃO INTELIGENTE
+          GESTÃO INTELIGENTE ACONTECE QUANDO TODAS AS ÁREAS DA EMPRESA <span class="text-green">SEGUEM O MESMO MÉTODO.</span>
         </h2>
-        <p class="body-lg" style="margin-top: 20px; max-width: 640px; margin-left: auto; margin-right: auto;">
-          O crescimento sustentável acontece quando as quatro áreas funcionam como um único sistema.
+        <p class="body-lg" style="margin-top: 20px; max-width: 720px; margin-left: auto; margin-right: auto;">
+          No Método GI, Marketing, Vendas, Operações e Finanças são geridos a partir de 6 pilares: Visão, Meta, Plano de Ação, Indicadores, Rotinas e Pessoas.
         </p>
       </div>
 
@@ -1667,7 +1796,7 @@
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm0 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
           </div>
           <h3 class="pillar-title">Marketing</h3>
-          <p class="pillar-desc"><strong>GERAR DEMANDA</strong><br>Construir uma máquina capaz de gerar oportunidades de forma consistente para o negócio.</p>
+          <p class="pillar-desc">Gerar demanda com direção, metas, indicadores e previsibilidade.</p>
         </div>
 
         <!-- 02 — VENDAS -->
@@ -1677,7 +1806,7 @@
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>
           </div>
           <h3 class="pillar-title">Vendas</h3>
-          <p class="pillar-desc"><strong>CONVERTER DEMANDA EM RECEITA</strong><br>Transformar oportunidades em receita com processo comercial, gestão e indicadores.</p>
+          <p class="pillar-desc">Transformar oportunidades em receita com processo, acompanhamento e consistência.</p>
         </div>
 
         <!-- 03 — OPERAÇÕES -->
@@ -1687,7 +1816,7 @@
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
           </div>
           <h3 class="pillar-title">Operações</h3>
-          <p class="pillar-desc"><strong>ENTREGAR COM EXCELÊNCIA</strong><br>Estruturar processos e execução para que a empresa entregue o que vendeu com qualidade e eficiência.</p>
+          <p class="pillar-desc">Garantir uma entrega organizada, eficiente e replicável, sem depender do improviso.</p>
         </div>
 
         <!-- 04 — FINANÇAS -->
@@ -1697,7 +1826,7 @@
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
           </div>
           <h3 class="pillar-title">Finanças</h3>
-          <p class="pillar-desc"><strong>GARANTIR MARGEM E LUCRO</strong><br>Garantir que o crescimento gere resultado financeiro, protegendo margem, caixa e lucratividade.</p>
+          <p class="pillar-desc">Proteger caixa e margem, acompanhar números e tomar decisões com clareza.</p>
         </div>
       </div>
 
@@ -1722,11 +1851,11 @@
       <div class="program-headline reveal">
         <div class="section-divider"></div>
         <h2 class="headline headline-xl">
-          NÃO BASTA CRESCER.<br>
-          O CRESCIMENTO PRECISA <span class="text-green">FUNCIONAR DE PONTA A PONTA.</span>
+          NÃO É SOBRE TRABALHAR MAIS.<br>
+          É SOBRE <span class="text-green">GERIR MELHOR.</span>
         </h2>
         <p class="body-lg" style="margin-top: 20px; max-width: 640px; margin-left: auto; margin-right: auto;">
-          Durante os dois dias, o empresário será provocado a entender:
+          Durante os dois dias, o empresário será provocado a olhar para:
         </p>
       </div>
 
@@ -1735,37 +1864,55 @@
           <div class="check-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
           </div>
-          <span>Como sua empresa gera demanda hoje;</span>
+          <div>
+            <strong style="color: var(--white); display: block; margin-bottom: 4px; font-size: 1.05rem;">1. Identificar o verdadeiro gargalo da sua empresa</strong>
+            <span style="font-size: 0.95rem; color: var(--white-muted);">Parar de tentar resolver tudo e entender o que realmente está limitando o próximo nível.</span>
+          </div>
         </li>
         <li>
           <div class="check-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
           </div>
-          <span>Onde existem gargalos entre a geração de demanda e vendas;</span>
+          <div>
+            <strong style="color: var(--white); display: block; margin-bottom: 4px; font-size: 1.05rem;">2. Transformar visão em execução</strong>
+            <span style="font-size: 0.95rem; color: var(--white-muted);">Desdobrar onde você quer chegar em metas, planos e responsabilidades claras.</span>
+          </div>
         </li>
         <li>
           <div class="check-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
           </div>
-          <span>Se a operação consegue sustentar aquilo que o comercial vende;</span>
+          <div>
+            <strong style="color: var(--white); display: block; margin-bottom: 4px; font-size: 1.05rem;">3. Tomar decisões com base em números</strong>
+            <span style="font-size: 0.95rem; color: var(--white-muted);">Definir os indicadores que mostram o que está funcionando e onde agir.</span>
+          </div>
         </li>
         <li>
           <div class="check-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
           </div>
-          <span>Se o crescimento está efetivamente gerando margem e lucro;</span>
+          <div>
+            <strong style="color: var(--white); display: block; margin-bottom: 4px; font-size: 1.05rem;">4. Criar uma rotina de gestão</strong>
+            <span style="font-size: 0.95rem; color: var(--white-muted);">Fazer com que metas, indicadores e planos sejam acompanhados até virarem resultado.</span>
+          </div>
         </li>
         <li>
           <div class="check-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
           </div>
-          <span>Quais indicadores precisam ser acompanhados de perto;</span>
+          <div>
+            <strong style="color: var(--white); display: block; margin-bottom: 4px; font-size: 1.05rem;">5. Colocar as pessoas certas para sustentar o crescimento</strong>
+            <span style="font-size: 0.95rem; color: var(--white-muted);">Entender quem precisa executar, desenvolver, assumir responsabilidade e entregar.</span>
+          </div>
         </li>
         <li>
           <div class="check-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
           </div>
-          <span>Onde está o principal gargalo que limita a próxima fase do negócio.</span>
+          <div>
+            <strong style="color: var(--white); display: block; margin-bottom: 4px; font-size: 1.05rem;">6. Construir uma empresa menos dependente de você</strong>
+            <span style="font-size: 0.95rem; color: var(--white-muted);">Trocar centralização e improviso por método, autonomia e previsibilidade.</span>
+          </div>
         </li>
       </ul>
 
@@ -1779,9 +1926,16 @@
         <span class="flow-step">Resultado</span>
       </div>
 
+      <div class="program-closing reveal" style="text-align: center; max-width: 600px; margin: 48px auto 24px; padding: 24px 20px; border-top: 1px solid rgba(76, 217, 100, 0.2); border-bottom: 1px solid rgba(76, 217, 100, 0.2);">
+        <p class="body-lg" style="color: var(--white); font-weight: 500; font-style: italic; line-height: 1.6;">
+          “Você não sai do GI apenas sabendo mais sobre gestão.<br>
+          <span class="text-green">Sai sabendo o que precisa mudar na sua empresa e por onde começar.”</span>
+        </p>
+      </div>
+
       <div class="program-cta reveal">
-        <a href="https://wa.me/5519999817138?text=Ol%C3%A1%2C%20quero%20garantir%20minha%20vaga%20no%20G.I.%20%E2%80%94%20Gest%C3%A3o%20Inteligente!" target="_blank" rel="noopener" class="cta-button">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <a href="#cadastro" class="cta-button">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21 12l-8.15-8.15-1.42 1.42 5.43 5.43H5v2z"/></svg>
           QUERO GARANTIR MINHA VAGA
         </a>
       </div>
@@ -1797,7 +1951,7 @@
       <div class="audience-headline reveal">
         <div class="section-divider"></div>
         <h2 class="headline headline-lg">
-          PARA EMPRESÁRIOS QUE QUEREM CONSTRUIR UMA <span class="text-green">EMPRESA</span> — E NÃO APENAS UM EMPREGO PARA SI MESMOS.
+          PARA EMPRESÁRIOS QUE QUEREM DEIXAR DE SER O GARGALO OPERACIONAL E <span class="text-green">PASSAR A ATUAR DE FORMA ESTRATÉGICA.</span>
         </h2>
       </div>
 
@@ -2025,13 +2179,80 @@
         <div class="event-info-badge">IMERSÃO EMPRESARIAL</div>
 
         <div class="event-info-cta">
-          <a href="https://wa.me/5519999817138?text=Ol%C3%A1%2C%20quero%20garantir%20minha%20vaga%20no%20G.I.%20%E2%80%94%20Gest%C3%A3o%20Inteligente!" target="_blank" rel="noopener" class="cta-button">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <a href="#cadastro" class="cta-button">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21 12l-8.15-8.15-1.42 1.42 5.43 5.43H5v2z"/></svg>
             QUERO GARANTIR MINHA VAGA
           </a>
         </div>
 
-        <p class="event-info-support">As inscrições são realizadas diretamente com nosso time pelo WhatsApp.</p>
+        <p class="event-info-support">Preencha o formulário acima para garantir sua inscrição.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SEÇÃO 08B — CADASTRO / FORMULÁRIO
+       ========================================== -->
+  <section class="cadastro-section section" id="cadastro">
+    <div class="container">
+      <div class="cadastro-card reveal">
+        <div class="cadastro-title">
+          <h3>Garanta sua vaga no G.I.</h3>
+          <p>Preencha os dados abaixo. Nosso time entrará em contato para confirmar sua inscrição.</p>
+        </div>
+
+        <form id="form-cadastro" class="cadastro-form">
+          <div class="form-group">
+            <label for="nome" class="form-label">Nome Completo</label>
+            <input type="text" id="nome" name="nome" class="form-input" placeholder="Seu nome completo" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">E-mail Corporativo</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="seu.email@empresa.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="telefone" class="form-label">Telefone / WhatsApp</label>
+            <input type="tel" id="telefone" name="telefone" class="form-input" placeholder="(00) 00000-0000" required>
+          </div>
+
+          <div class="form-group">
+            <label for="faturamento" class="form-label">Faturamento Mensal Médio</label>
+            <select id="faturamento" name="faturamento" class="form-select" required>
+              <option value="" disabled selected>Selecione uma faixa</option>
+              <option value="Até R$ 50.000">Até R$ 50.000</option>
+              <option value="R$ 50.000 a R$ 100.000">R$ 50.000 a R$ 100.000</option>
+              <option value="R$ 100.000 a R$ 250.000">R$ 100.000 a R$ 250.000</option>
+              <option value="R$ 250.000 a R$ 500.000">R$ 250.000 a R$ 500.000</option>
+              <option value="Acima de R$ 500.000">Acima de R$ 500.000</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="funcionarios" class="form-label">Número de Funcionários</label>
+            <select id="funcionarios" name="funcionarios" class="form-select" required>
+              <option value="" disabled selected>Selecione a quantidade</option>
+              <option value="1 a 5 colaboradores">1 a 5 colaboradores</option>
+              <option value="6 a 15 colaboradores">6 a 15 colaboradores</option>
+              <option value="16 a 50 colaboradores">16 a 50 colaboradores</option>
+              <option value="Mais de 50 colaboradores">Mais de 50 colaboradores</option>
+            </select>
+          </div>
+
+          <button type="submit" class="cta-button form-submit-btn">
+            Finalizar Minha Inscrição
+          </button>
+        </form>
+
+        <div id="feedback-cadastro" class="form-feedback">
+          <div class="form-feedback-title">Cadastro Realizado com Sucesso!</div>
+          <div class="form-feedback-text">
+            Obrigado por se inscrever no G.I. — Gestão Inteligente. <br>
+            Nosso time estratégico entrará em contato via WhatsApp nas próximas horas para validar seus dados e confirmar sua vaga.
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -2054,13 +2275,13 @@
 
       <div class="reveal reveal-delay-1">
         <p class="body-lg final-text">
-          Nos dias 22 e 23 de setembro, vamos trabalhar esses quatro pilares para ajudar você a identificar onde estão os principais gargalos da empresa e quais decisões precisam ser tomadas para a próxima fase do negócio.
+          Nos dias 22 e 23 de setembro, vamos trabalhar essas quatro áreas do negócio para ajudar você a identificar onde estão os principais gargalos da empresa e quais decisões precisam ser tomadas para a próxima fase do negócio.
         </p>
       </div>
 
       <div class="final-cta-group reveal reveal-delay-2">
-        <a href="https://wa.me/5519999817138?text=Ol%C3%A1%2C%20quero%20participar%20do%20G.I.%20%E2%80%94%20Gest%C3%A3o%20Inteligente!" target="_blank" rel="noopener" class="cta-button">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <a href="#cadastro" class="cta-button">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21 12l-8.15-8.15-1.42 1.42 5.43 5.43H5v2z"/></svg>
           QUERO PARTICIPAR DO G.I.
         </a>
         <p class="cta-support">Participação gratuita | Vagas limitadas</p>
@@ -2127,6 +2348,64 @@
           }
         });
       });
+
+      // Telefone/WhatsApp Mask
+      const phoneInput = document.getElementById('telefone');
+      if (phoneInput) {
+        phoneInput.addEventListener('input', function(e) {
+          let value = e.target.value.replace(/\D/g, '');
+          if (value.length > 11) {
+            value = value.substring(0, 11);
+          }
+          
+          if (value.length > 10) {
+            value = value.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+          } else if (value.length > 5) {
+            value = value.replace(/^(\d{2})(\d{4})(\d{0,4})$/, '($1) $2-$3');
+          } else if (value.length > 2) {
+            value = value.replace(/^(\d{2})(\d{0,5})$/, '($1) $2');
+          } else if (value.length > 0) {
+            value = value.replace(/^(\d*)$/, '($1');
+          }
+          e.target.value = value;
+        });
+      }
+
+      // Form submission handler
+      const formCadastro = document.getElementById('form-cadastro');
+      const feedbackCadastro = document.getElementById('feedback-cadastro');
+      if (formCadastro && feedbackCadastro) {
+        formCadastro.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const nome = document.getElementById('nome').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const telefone = document.getElementById('telefone').value.trim();
+          const faturamento = document.getElementById('faturamento').value;
+          const funcionarios = document.getElementById('funcionarios').value;
+          
+          if (!nome || !email || !telefone || !faturamento || !funcionarios) {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+            return;
+          }
+
+          // Mock submit (will connect the actual CRM integration here later)
+          console.log('Dados do formulário capturados:', {
+            nome,
+            email,
+            telefone,
+            faturamento,
+            funcionarios
+          });
+
+          // Show success message and hide the form
+          formCadastro.style.display = 'none';
+          feedbackCadastro.style.display = 'block';
+
+          // Smooth scroll to feedback header
+          feedbackCadastro.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      }
     });
   </script>
 
