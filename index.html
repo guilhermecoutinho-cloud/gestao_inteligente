@@ -2389,14 +2389,19 @@
             return;
           }
 
-          // Mock submit (will connect the actual CRM integration here later)
-          console.log('Dados do formulário capturados:', {
-            nome,
-            email,
-            telefone,
-            faturamento,
-            funcionarios
-          });
+          // Generate pre-filled WhatsApp message with form details
+          const whatsappText = `Olá, gostaria de confirmar minha vaga no G.I. — Gestão Inteligente!\n\n` +
+            `*Meus Dados de Cadastro:*\n` +
+            `• *Nome:* ${nome}\n` +
+            `• *E-mail:* ${email}\n` +
+            `• *Telefone:* ${telefone}\n` +
+            `• *Faturamento Mensal:* ${faturamento}\n` +
+            `• *Funcionários:* ${funcionarios}`;
+          
+          const whatsappUrl = `https://wa.me/5519999817138?text=${encodeURIComponent(whatsappText)}`;
+
+          // Open WhatsApp link in a new tab
+          window.open(whatsappUrl, '_blank');
 
           // Show success message and hide the form
           formCadastro.style.display = 'none';
